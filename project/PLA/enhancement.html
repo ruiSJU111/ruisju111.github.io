@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Enhancement for Palm Leaf Manuscripts</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Lora -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        h1, h2, h3 {
+            font-family: 'Lora', serif;
+        }
+        .section-icon {
+            font-size: 1.75rem;
+            color: #2563eb; /* blue-600 */
+        }
+    </style>
+</head>
+<body class="text-slate-700">
+
+    <!-- Header Section -->
+    <header class="bg-blue-50 pt-24 pb-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-800">Document Enhancement for Improving Post-processing Tasks in Palm Leaf Manuscripts</h1>
+            <p class="mt-4 text-xl text-slate-600">Advanced Techniques for Image Restoration and Binarization</p>
+            <div class="mt-8 text-slate-700">
+                <p class="font-semibold">
+                    <a href="#" class="hover:text-blue-600">Nimol Thuon*</a>,
+                    <a href="#" class="hover:text-blue-600">Jun Du*</a>,
+                    <a href="#" class="hover:text-blue-600">Zhenrong Zhang</a>,
+                    <a href="#" class="hover:text-blue-600">Jiefeng Ma</a>
+                </p>
+                <div class="text-sm text-slate-600 mt-2 space-y-1">
+                    <p>National Engineering Laboratory for Speech and Language Information Processing (NEL-SLIP), USTC, China</p>
+                    <p>iFLYTEK Research, Hefei, Anhui, China</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="space-y-16">
+
+            <!-- Introduction/Challenges Section -->
+            <section id="introduction">
+                <div class="text-center mb-12">
+                     <i class="fas fa-exclamation-triangle section-icon"></i>
+                    <h2 class="text-3xl font-bold text-slate-800 mt-4">The Challenge of Manuscript Degradation</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="text-slate-600 leading-relaxed space-y-4 text-justify">
+                        <p>Palm leaf manuscripts are vital historical artifacts, but their organic nature makes them prone to significant degradation. Over time, factors like light exposure, handling, and storage conditions lead to a range of issues, including faded ink, physical damage, low contrast, and various forms of noise. These problems are often exacerbated by the limitations of digitization equipment.</p>
+                        <p>The inherent complexity of Southeast Asian scripts, with their extensive character classes and intricate layouts, combined with poor image quality, makes automated analysis exceptionally difficult. Our research focuses on developing robust enhancement techniques to restore legibility and prepare these valuable documents for post-processing tasks like classification and recognition.</p>
+                    </div>
+                    <div class="grid grid-cols-1 gap-4">
+                         <img src="e1.jpg" onerror="this.onerror=null;this.src='e1.jpg';" alt="Low contrast manuscript" class="rounded-lg shadow-sm" style="height: 200px;">
+
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Methodologies Section -->
+            <section id="methodologies">
+                <div class="text-center mb-12">
+                     <i class="fas fa-cogs section-icon"></i>
+                    <h2 class="text-3xl font-bold text-slate-800 mt-4">Our Enhancement Methodologies</h2>
+                </div>
+                <div class="space-y-12">
+                    <!-- GTC Strategy -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-slate-800 text-center">The GTC (Generate, Transform, Clean) Strategy</h3>
+                        <div class="mt-6 md:flex md:space-x-8 items-center">
+                            <div class="md:w-1/2">
+                                <img src="e6.jpg" onerror="this.onerror=null;this.src='e6.jpg';" alt="GTC Framework Diagram" class="rounded-lg shadow-md">
+                            </div>
+                            <div class="md:w-1/2 text-slate-600 leading-relaxed space-y-3 text-justify">
+                                <p>To address the dual problems of data scarcity and image degradation, we developed the GTC strategy. This framework uses two Generative Adversarial Networks (GANs) for data augmentation and image cleaning.</p>
+                                <ul class="list-disc list-inside space-y-2">
+                                    <li><strong>Generate:</strong> An enhanced DCGAN creates diverse and realistic manuscript backgrounds, providing varied contexts for training.</li>
+                                    <li><strong>Transform:</strong> A multi-task algorithm artfully combines cleaned text with the newly generated backgrounds, creating a rich augmented dataset that captures real-world variations.</li>
+                                    <li><strong>Clean:</strong> A customized transformer-based GAN, which we call <strong>PALM-GAN</strong>, performs the final binarization and enhancement, effectively removing noise and producing a clean, high-quality image ready for analysis.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- IEPalm -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-slate-800 text-center">IEPalm: A Multi-Task Image Processing Approach</h3>
+                        <div class="mt-6 md:flex md:space-x-8 items-center">
+                             <div class="md:w-1/2 text-slate-600 leading-relaxed space-y-3 text-justify md:order-2">
+                                <p>The IEPalm framework is a targeted, multi-step process designed to improve character-level quality through careful normalization and thresholding.</p>
+                                <ul class="list-disc list-inside space-y-2">
+                                    <li><strong>Normalization:</strong> We first focus on balancing image contrast. Using an enhanced version of Contrast Limited Adaptive Histogram Equalization (CLAHE), we correct inconsistencies between text and background, reduce noise, and sharpen edges without over-enhancement.</li>
+                                    <li><strong>Thresholding:</strong> Standard binarization methods often fail on low-contrast historical documents. We use an improved WAN thresholding technique that dynamically adjusts to the image's characteristics. By calculating a "maximum-mean" value, our method can better separate text from the background, even in faded or damaged areas, restoring lost features and reducing artifacts.</li>
+                                </ul>
+                            </div>
+                            <div class="md:w-1/2 md:order-1">
+                                <img src="e7.jpg" onerror="this.onerror=null;this.src='e7.jpg';" alt="IEPalm Framework Diagram" class="rounded-lg shadow-md">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Citation Section -->
+            <section id="citation">
+                <div class="text-center mb-12">
+                     <i class="fas fa-quote-right section-icon"></i>
+                    <h2 class="text-3xl font-bold text-slate-800 mt-4">How to Cite</h2>
+                </div>
+                <div class="space-y-8">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                        <h3 class="font-semibold text-slate-800 mb-2">Generate, Transform, and Clean... (PALM-GAN)</h3>
+                        <pre class="bg-slate-100 p-4 rounded-lg text-sm text-slate-800 overflow-x-auto"><code>@article{thuon2024generate,
+  title={Generate, transform, and clean: the role of GANs and transformers in palm leaf manuscript generation and enhancement},
+  author={Thuon, Nimol and Du, Jun and Zhang, Zhenrong and Ma, Jiefeng and Hu, Pengfei},
+  journal={International Journal on Document Analysis and Recognition (IJDAR)},
+  pages={1--18},
+  year={2024},
+  publisher={Springer}
+}</code></pre>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                        <h3 class="font-semibold text-slate-800 mb-2">Improving Isolated Glyph Classification... (IEPalmV1)</h3>
+                        <pre class="bg-slate-100 p-4 rounded-lg text-sm text-slate-800 overflow-x-auto"><code>@inproceedings{thuon2022improving,
+  title={Improving isolated glyph classification task for palm leaf manuscripts},
+  author={Thuon, Nimol and Du, Jun and Zhang, Jianshu},
+  booktitle={International Conference on Frontiers in Handwriting Recognition},
+  pages={65--79},
+  year={2022},
+  organization={Springer}
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="bg-slate-800 text-center py-8 mt-16">
+        <p class="text-sm text-slate-300">&copy; 2024 Document Enhancement Research. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
