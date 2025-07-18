@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PALM-SEA: Historical Palm Leaf Analysis</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Lora -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        h1, h2, h3 {
+            font-family: 'Lora', serif;
+        }
+        .nav-link.active {
+            color: #059669; /* emerald-600 */
+            font-weight: 600;
+        }
+        .nav-link {
+            transition: color 0.2s ease-in-out;
+        }
+        .section-icon {
+            font-size: 1.75rem;
+            color: #10b981; /* emerald-500 */
+        }
+        .publication-link {
+            @apply text-emerald-600 hover:underline font-semibold;
+        }
+    </style>
+</head>
+<body class="text-slate-700">
+
+    <!-- Top Navigation Bar -->
+    <nav class="bg-white/90 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="font-semibold text-lg text-slate-800">PALM-SEA Project</span>
+                </div>
+                <div class="hidden md:block">
+                    <div id="nav-links" class="ml-10 flex items-baseline space-x-4">
+                        <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-emerald-600">Overview</a>
+                        <a href="#tasks" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-emerald-600">Tasks</a>
+                        <a href="#dataset" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-emerald-600">Dataset</a>
+                        <a href="#publications" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-emerald-600">Publications</a>
+                        <a href="#conclusion" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-emerald-600">Conclusion</a>
+                        <a href="#references" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-emerald-600">References</a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button id="mobile-menu-button" type="button" class="bg-slate-100 inline-flex items-center justify-center p-2 rounded-md text-slate-500 hover:text-slate-600 hover:bg-slate-200 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#overview" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-emerald-600 hover:bg-slate-50">Overview</a>
+                <a href="#tasks" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-emerald-600 hover:bg-slate-50">Tasks</a>
+                <a href="#dataset" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-emerald-600 hover:bg-slate-50">Dataset</a>
+                <a href="#publications" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-emerald-600 hover:bg-slate-50">Publications</a>
+                <a href="#conclusion" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-emerald-600 hover:bg-slate-50">Conclusion</a>
+                <a href="#references" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-emerald-600 hover:bg-slate-50">References</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="bg-emerald-50 pt-32 pb-20">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-800">PALM-SEA: Historical Palm Leaf Manuscript Analysis for Southeast Asia Regions</h1>
+            <div class="mt-6 text-slate-600">
+                <p class="font-semibold">Nimol Thuon*, Jun Du, Jianshu Zhang, Zhenrong Zhang, Jiefeng Ma, Ranysakol Thuon, Panhapin Theang, Chan Theara Sok</p>
+                <p class="text-sm mt-2">NERC-SLIP, USTC, China | iFlyTek Research, China | Institute of Technology of Cambodia | Universitas Gadjah Mada, Indonesia</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="space-y-20">
+
+            <!-- Overview Section -->
+            <section id="overview" class="scroll-mt-20">
+                <div class="text-center mb-12">
+                     <i class="fas fa-leaf section-icon"></i>
+                    <h2 class="text-3xl font-bold text-slate-800 mt-4">Project Overview</h2>
+                </div>
+                <div class="md:flex md:space-x-10 items-center">
+                    <div class="md:w-3/5 text-slate-600 leading-relaxed space-y-4">
+                        <p>The <strong>PALM-SEA</strong> project is dedicated to the digital preservation and analysis of historical palm leaf manuscripts from Southeast Asia. These manuscripts are invaluable cultural artifacts, containing centuries of knowledge on topics ranging from religious texts and historical records to literature and traditional medicine. However, their organic nature makes them highly susceptible to degradation, posing a significant risk to this heritage.</p>
+                        <p>Our project addresses this challenge by creating the largest publicly available, multi-script dataset of palm leaf manuscripts, featuring scripts like <strong>Sundanese, Balinese, and Khmer</strong>. We develop and benchmark advanced computational methods for critical tasks such as document enhancement, isolated glyph classification, and full text recognition. By creating robust digital tools, we aim to unlock the rich information held within these manuscripts for scholars, historians, and future generations.</p>
+                    </div>
+                    <div class="md:w-2/5 mt-8 md:mt-0">
+                        <img src="project.jpg" onerror="this.onerror=null;this.src='project.jpg';" alt="Collage of palm leaf manuscripts" class="rounded-xl shadow-lg w-full">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tasks Section -->
+            <section id="tasks" class="scroll-mt-20 text-center bg-slate-50 py-16 rounded-xl">
+                <i class="fas fa-cogs section-icon"></i>
+                <h2 class="text-3xl font-bold text-slate-800 mt-4">Project Tasks & Details</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-slate-600">Our research is structured around four core tasks, each addressing a specific challenge in the digital analysis of palm leaf manuscripts. Explore the details for each task below.</p>
+                <div class="mt-8 flex flex-wrap justify-center gap-4">
+                    <a href="data.html" class="bg-emerald-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-emerald-700 transition-colors shadow-md">
+                        <i class="fas fa-database mr-2"></i> Data Collection
+                    </a>
+                    <a href="enhancement.html" class="bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors shadow-md">
+                        <i class="fas fa-magic mr-2"></i> Document Enhancement
+                    </a>
+                    <a href="classification.html" class="bg-purple-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors shadow-md">
+                        <i class="fas fa-font mr-2"></i> Isolated Glyph Classification
+                    </a>
+                     <a href="recognitions.html" class="bg-red-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-red-700 transition-colors shadow-md">
+                        <i class="fas fa-align-left mr-2"></i> Text Recognition
+                    </a>
+                </div>
+            </section>
+
+            <!-- Dataset Section -->
+            <section id="dataset" class="scroll-mt-20">
+                 <div class="text-center mb-12">
+                    <i class="fas fa-images section-icon"></i>
+                    <h2 class="text-3xl font-bold text-slate-800 mt-4">Manuscript Collections</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-slate-100">
+                        <h3 class="font-semibold text-lg text-slate-800">Sundanese Manuscripts</h3>
+                        <p class="mt-2 text-sm text-slate-600">Originating from West Java, these manuscripts are written in the Old Sundanese script. The collection showcases the script's distinct rounded letterforms and complex ligatures. Key challenges include high character shape variability due to natural wear and the presence of overlapping text lines, requiring advanced image enhancement.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-slate-100">
+                        <h3 class="font-semibold text-lg text-slate-800">Balinese Manuscripts</h3>
+                        <p class="mt-2 text-sm text-slate-600">From Bali and Lombok, these texts cover a rich array of topics. The intricate Balinese script features a mix of base consonants and vowel diacritics, creating complex ligatures and stacked forms. The presence of decorative elements intertwined with the script complicates segmentation and recognition.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-slate-100">
+                        <h3 class="font-semibold text-lg text-slate-800">Khmer Manuscripts</h3>
+                        <p class="mt-2 text-sm text-slate-600">From Cambodia, these use one of the oldest scripts in Southeast Asia. The Khmer script is known for its curvilinear shapes and unique subscript characters, adding complexity to the text structure. Many manuscripts are severely degraded, with faint or fragmented characters requiring specialized restoration techniques.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-slate-100">
+                        <h3 class="font-semibold text-lg text-slate-800">Mixed Script Dataset</h3>
+                        <p class="mt-2 text-sm text-slate-600">This collection combines samples from all three scripts to enable robust multi-script analysis, script identification, and cross-lingual studies. It is curated to include variations in script styles and degradation patterns, simulating real-world challenges and fostering the development of generalized models.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Publications Section -->
+            <section id="publications" class="scroll-mt-20">
+                <div class="text-center mb-12">
+                    <i class="fas fa-feather-alt section-icon"></i>
+                    <h2 class="text-3xl font-bold text-slate-800 mt-4">Publications</h2>
+                </div>
+                <div class="space-y-8">
+                    <!-- Publication 1 -->
+                  <div class="bg-white p-6 rounded-xl shadow-md border border-slate-100">
+                        <p class="font-semibold text-slate-800">Multi-low resource languages in palm leaf manuscript recognition: Syllable-based augmentation and error analysis</p>
+                        <p class="text-sm text-slate-500 mt-1"><Strong>Nimol Thuon, et al. (2025). <em>Pattern Recognition Letters,</em>.</strong></p>
+                        <div class="mt-4 flex items-center space-x-4 text-sm">
+                           <a href="https://doi.org/10.1016/j.patrec.2025.04.031" target="_blank" class="publication-link"><i class="fas fa-file-pdf mr-1"></i>Paper</a>
+                           <a href="#" target="_blank" class="publication-link"><i class="fas fa-flask mr-1"></i>Project</a>
+                           <a href="https://github.com/back-kh/SADA" target="_blank" class="publication-link"><i class="fab fa-github mr-1"></i>GitHub</a>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-slate-100">
+                        <p class="font-semibold text-slate-800">A Low-Intervention Dual-Loop Iterative Process for Efficient Dataset Expansion and Classification in Palm Leaf Manuscript Analysis</p>
+                        <p class="text-sm text-slate-500 mt-1"><strong>Nimol Thuon, et al. (2025). <em>International Journal on Document Analysis and Recognition (IJDAR), Special Issue track ICDAR-IJDAR 2025</em>.</strong></p>
+                        <div class="mt-4 flex items-center space-x-4 text-sm">
+                           <a href="https://doi.org/10.1007/s10032-025-00532-y" target="_blank" class="publication-link"><i class="fas fa-file-pdf mr-1"></i>Paper</a>
+                           <a href="#" target="_blank" class="publication-link"><i class="fas fa-flask mr-1"></i>Project</a>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-slate-100">
+                        <p class="font-semibold text-slate-800">Generate, transform, and clean: the role of GANs and transformers in palm leaf manuscript generation and enhancement.</p>
+                        <p class="text-sm text-slate-500 mt-1"><strong>Nimol Thuon, et al. (2024). <em>International Journal on Document Analysis and Recognition (IJDAR), Special Issue track ICDAR-IJDAR 2024</em>.</strong></p>
+                        <div class="mt-4 flex items-center space-x-4 text-sm">
+                           <a href="https://doi.org/10.1007/s10032-024-00472-z" target="_blank" class="publication-link"><i class="fas fa-file-pdf mr-1"></i>Paper</a>
+                           <a href="#" target="_blank" class="publication-link"><i class="fas fa-flask mr-1"></i>Project</a>
+                        </div>
+                    </div>
+
+                                        <div class="bg-white p-6 rounded-xl shadow-md border border-slate-100">
+                        <p class="font-semibold text-slate-800">KhmerFormer: Multi-Scale CNNs-Transformer with External Attention for Ancient Khmer Isolated Glyph Classification</p>
+                        <p class="text-sm text-slate-500 mt-1"><strong>Thuon, N., et al. (2024). <em>Asia-Pacific Signal and Information Processing Association Annual Summit (APSIPA 2024)</em>.</strong></p>
+                        <div class="mt-4 flex items-center space-x-4 text-sm">
+                           <a href="https://doi.org/10.1007/s10032-024-00472-z" target="_blank" class="publication-link"><i class="fas fa-file-pdf mr-1"></i>Paper</a>
+                           <a href="#" target="_blank" class="publication-link"><i class="fas fa-flask mr-1"></i>Project</a>
+                        </div>
+                    </div>
+<div class="bg-white p-6 rounded-xl shadow-md border border-slate-100">
+                        <p class="font-semibold text-slate-800">Improving Isolated Glyph Classification Task for Palm Leaf Manuscripts</p>
+                        <p class="text-sm text-slate-500 mt-1"><strong>Thuon, N., et al. (2024). <em>International Conference on Frontiers in Handwriting Recognition 2022 (ICFHR 2022)</em>.</strong></p>
+                        <div class="mt-4 flex items-center space-x-4 text-sm">
+                           <a href="https://doi.org/10.1007/978-3-031-21648-0_5" target="_blank" class="publication-link"><i class="fas fa-file-pdf mr-1"></i>Paper</a>
+                           <a href="#" target="_blank" class="publication-link"><i class="fas fa-flask mr-1"></i>Project</a>
+                        </div>
+                    </div>
+<div class="bg-white p-6 rounded-xl shadow-md border border-slate-100">
+                        <p class="font-semibold text-slate-800">Syllable Analysis Data Augmentation for Khmer Ancient Palm leaf Recognition</p>
+                        <p class="text-sm text-slate-500 mt-1"><strong>Thuon, N., et al. (2024). <em>sia-Pacific Signal and Information Processing Association Annual Summit (APSIPA 2022)</em>.</strong></p>
+                        <div class="mt-4 flex items-center space-x-4 text-sm">
+                           <a href="https://doi.org/10.23919/APSIPAASC55919.2022.9980217" target="_blank" class="publication-link"><i class="fas fa-file-pdf mr-1"></i>Paper</a>
+                           <a href="#" target="_blank" class="publication-link"><i class="fas fa-flask mr-1"></i>Project</a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Conclusion Section -->
+            <section id="conclusion" class="scroll-mt-20">
+                <div class="text-center mb-12">
+                    <i class="fas fa-flag-checkered section-icon"></i>
+                    <h2 class="text-3xl font-bold text-slate-800 mt-4">Conclusion & Impact</h2>
+                </div>
+                <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8 text-slate-600 leading-relaxed">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                        <h3 class="font-semibold text-lg text-slate-800 mb-2">Research Contribution</h3>
+                        <p class="text-sm">This research introduces novel methodologies (e.g., PALM-GANs for enhancement, EFF for classification, and SADA for text synthesis) that establish new state-of-the-art benchmarks for the analysis of complex, low-resource historical manuscripts.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                        <h3 class="font-semibold text-lg text-slate-800 mb-2">Cultural Impact</h3>
+                        <p class="text-sm">Beyond technical advancements, this work plays a crucial role in the digital preservation of Southeast Asian cultural heritage. By making the contents of endangered manuscripts accessible, we empower new forms of scholarly inquiry and public engagement.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                        <h3 class="font-semibold text-lg text-slate-800 mb-2">Future Work</h3>
+                        <p class="text-sm">Future directions include expanding the dataset to more scripts (e.g., Javanese, Lontara), integrating multimodal approaches (combining visual and linguistic cues), and developing interactive, AI-assisted tools for historians and linguists.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Acknowledgment Section -->
+            <section id="acknowledgment" class="scroll-mt-20">
+                 <div class="text-center mb-12">
+                    <i class="fas fa-hands-helping section-icon"></i>
+                    <h2 class="text-3xl font-bold text-slate-800 mt-4">Acknowledgment</h2>
+                </div>
+                <p class="text-center max-w-3xl mx-auto text-slate-600">
+                    This work was primarily conducted by Nimol Thuon, with funding support from the Chinese Academy of Sciences (CAS), The World Academy of Sciences (TWAS, Italy), and the National Natural Science Foundation of China (NSFC). The author also acknowledges the valuable contributions and collaboration from partners in Cambodia, China, and Indonesia.
+                </p>
+            </section>
+
+            <!-- References Section -->
+            <section id="references" class="scroll-mt-20">
+                <div class="text-center mb-12">
+                    <i class="fas fa-book section-icon"></i>
+                    <h2 class="text-3xl font-bold text-slate-800 mt-4">References</h2>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md border border-slate-100 text-sm">
+                    <div class="text-slate-600 space-y-3">
+                        <p>[1] Kesiman, M. W. A., et al. (2018). ICFHR 2018 competition on document image analysis tasks for southeast asian palm leaf manuscripts. In <em>16th International Conference on Frontiers in Handwriting Recognition (ICFHR)</em>.</p>
+                        <p>[2] Valy, D., et al. (2017). A new khmer palm leaf manuscript dataset for document analysis and recognition: Sleukrith set. In <em>4th International Workshop on Historical Document Imaging and Processing</em>.</p>
+                        <p>[3] Suryani, M., et al. (2017). The handwritten sundanese palm leaf manuscript dataset from 15th century. In <em>14th IAPR international conference on document analysis and recognition (ICDAR)</em>.</p>
+                        <p>[4] Burie, J. C., et al. (2016). ICFHR2016 competition on the analysis of handwritten text in images of balinese palm leaf manuscripts. In <em>15th International Conference on Frontiers in Handwriting Recognition (ICFHR)</em>.</p>
+                        <p>[5] Thuon, N., et al. (2024). Generate, transform, and clean: the role of GANs and transformers in palm leaf manuscript generation and enhancement. <em>International Journal on Document Analysis and Recognition (IJDAR)</em>.</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="bg-slate-800 text-slate-300 text-center py-8 mt-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="text-sm text-left">
+                    <p>&copy; 2024 PALM-SEA Project Team. All Rights Reserved.</p>
+                </div>
+                <div class="text-left md:text-right">
+                    <h3 class="font-semibold text-slate-200 mb-2">Visitor Statistics</h3>
+                    <!-- Flag Counter -->
+                    <a href="https://info.flagcounter.com/Y2Pq" target="_blank">
+                        <img src="https://s11.flagcounter.com/count2/Y2Pq/bg_1F2937/txt_E2E8F0/border_475569/columns_2/maxflags_12/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0">
+                    </a>
+                    <!-- End Flag Counter -->
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: '-20% 0px -80% 0px' });
+
+            sections.forEach(section => observer.observe(section));
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (!mobileMenu.classList.contains('hidden')) {
+                         mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
