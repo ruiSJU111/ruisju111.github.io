@@ -1,0 +1,6 @@
+@article{thuon2024khmer,
+  title={Khmer Semantic Search Engine: Digital Information Access and Document Retrieval},
+  author={Thuon, Nimol},
+  journal={arXiv preprint arXiv:2406.09320},
+  year={2024}
+}
