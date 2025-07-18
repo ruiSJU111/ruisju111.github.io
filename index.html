@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nimol Thuon - Personal Webpage</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        .nav-link.active {
+            color: #2563eb; /* blue-600 */
+            font-weight: 600;
+        }
+        .nav-link {
+            transition: color 0.2s ease-in-out;
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9; /* slate-100 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; /* slate-300 */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; /* slate-400 */
+        }
+        /* Style for disabled pagination buttons */
+        .pagination-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body class="text-slate-700">
+
+    <!-- Top Navigation Bar -->
+    <nav class="bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="font-bold text-xl text-slate-800">Personal Academic Profile</span>
+                </div>
+                <div class="hidden md:block">
+                    <div id="nav-links" class="ml-10 flex items-baseline space-x-4">
+                        <a href="#about" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-blue-600">About Me</a>
+                        <a href="#research" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-blue-600">Research</a>
+                        <a href="#publications" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-blue-600">Publications</a>
+                        <a href="#services" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-blue-600">Services</a>
+                        <a href="#news" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-blue-600">Blog</a>
+                        <a href="#awards" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-blue-600">Awards</a>
+                    </div>
+                </div>
+                 <!-- Mobile menu button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button id="mobile-menu-button" type="button" class="bg-slate-100 inline-flex items-center justify-center p-2 rounded-md text-slate-500 hover:text-slate-600 hover:bg-slate-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-100 focus:ring-blue-500" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+         <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-50">About Me</a>
+                <a href="#research" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-50">Research</a>
+                <a href="#publications" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-50">Publications</a>
+                <a href="#services" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-50">Services</a>
+                <a href="#news" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-50">Blog</a>
+                <a href="#awards" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-50">Awards</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
+        <div class="lg:flex lg:space-x-8">
+
+            <!-- Left Column (Sticky Profile) -->
+            <aside class="lg:w-1/3 lg:sticky lg:top-24 self-start mb-8 lg:mb-0">
+                <div class="bg-white p-9 rounded-2xl shadow-sm">
+                    <div class="flex flex-col items-center text-center">
+                        <img src="pics/profile.jpg" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/128x128/e2e8f0/334155?text=NT';" 
+                             alt="Dr. Nimol Thuon" class="w-32 h-32 rounded-full mb-4 border-4 border-slate-100">
+                        <h1 class="text-2xl font-bold text-slate-800">Nimol Thuon, PhD</h1>
+                        <p class="mt-2 text-slate-600">Computer Vision, Pattern Recognition, Document Analysis and Understanding</p>
+                    </div>
+                    <div class="mt-6 border-t border-slate-200 pt-6">
+                        <ul class="space-y-3 text-slate-600">
+                            <li class="flex items-center">
+                                <i class="fa-solid fa-location-dot w-6 text-center text-slate-400"></i>
+                                <span class="ml-2">Cambodia</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa-solid fa-envelope w-6 text-center text-blue-600"></i>
+                                <a href="mailto:email@example.com" class="ml-2 hover:text-blue-600">nimol.thuon@gmail.com</a>
+                            </li>
+                        <!--     <li class="flex items-center">
+                                <i class="fa-brands fa-google-scholar w-6 text-center text-slate-400"></i>
+                                <a href="#" target="_blank" class="ml-2 hover:text-blue-600">Google Scholar</a>
+                            </li> -->
+                            <li class="flex items-center">
+                                <i class="fa-brands fa-github w-6 text-center text-black-400"></i>
+                                <a href="https://github.com/back-kh" target="_blank" class="ml-2 hover:text-blue-600">GitHub</a>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa-brands fa-linkedin w-6 text-center text-blue-600"></i>
+                                <a href="https://it.linkedin.com/in/thuon-nimol-12b998282?trk=people_directory" target="_blank" class="ml-2 hover:text-blue-600">Linkedin</a>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa-brands fa-orcid w-6 text-center text-green-400"></i>
+                                <a href="https://orcid.org/0000-0001-6672-1933" target="_blank" class="ml-2 hover:text-blue-600">ORCID</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                                        
+                                     <div class="text-left md:text-right">
+                                        <br>
+                                        <div>                    <!-- Flag Counter -->
+                    <a href="https://info.flagcounter.com/6BvX"><img src="https://s05.flagcounter.com/count/6BvX/bg_FFFDF7/txt_000000/border_0E73CC/columns_5/maxflags_10/viewers_1/labels_1/pageviews_1/flags_0/percent_1/" alt="Flag Counter" border="0"></a>
+                    <!-- End Flag Counter --></div>
+
+                </div>
+            </aside>
+
+            <!-- Right Column (Scrollable Content) -->
+            <main class="lg:w-2/3">
+                <div class="space-y-12">
+                    
+                    <!-- About Me Section -->
+                    <section id="about" class="bg-white p-8 rounded-2xl shadow-sm">
+                        <h2 class="text-2xl font-bold text-slate-800 mb-4 border-b pb-3">🔬 About Me</h2>
+                        <div class="space-y-4 text-slate-600 leading-relaxed">
+                            <p><strong>Nimol Thuon</strong>, research focuses on <strong>document analysis and low-resource language processing for applied AI in digital humanities</strong>. My early research, from 2011 to 2016, involved leading the development of the <strong>first Khmer Semantic Search Engine</strong> for the Institute of Technology of Cambodia (ITC) and the Ministry of Education, Youth and Sport (MoEYS). This was a crucial effort in addressing the complexities of processing low-resource languages like Khmer.</p>
+                            <p>Since 2018, I have been conducting research in <strong>Computer Vision and Pattern Recognition</strong> at institutions such as the University of Science and Technology of China (USTC), Chinese Academy of Sciences (CAS), China, the University of Mons, Belgium, and FAU Erlangen-Nürnberg, Germany. Additionally, I have worked on analyzing historical palm leaf manuscripts based on scripts in Southeast Asia like Khmer, Sundanese, and Balinese. And currently working with Tamil Scripts from south asia as well.</p>
+                            <p><strong>Although my achievements might not compare to top-tier researchers. However, they are deeply meaningful to me. Despite these accomplishments, I remain eager to gain more experience and continue learning from experts and researchers around the world.</strong></p>
+
+                                <p><strong> I also welcome students, interested in these fields to reach out for online guideline on their theses or existing research.</strong></p>
+                        </div>
+                    </section>
+                    
+                    <!-- Research Projects Section -->
+                    <section id="research" class="bg-white p-8 rounded-2xl shadow-sm">
+                        <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b pb-3">📚 Research Projects</h2>
+                        <div class="space-y-8">
+                                   <!-- Project Card 1 -->
+                            <div class="md:flex md:space-x-6 items-start">
+                                <div> <br><img src="project\PLA-1\project.jpg" onerror="this.onerror=null;this.src='project\PLA-1\project.jpg';" alt="Palm Leaf Manuscript Analysis" class="w-full md:w-48 h-auto rounded-lg mb-4 md:mb-0" style="height: 130px;"></div>
+                                
+                                <div class="flex-1">
+
+                                    <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-1 rounded-full mb-2">Document Analysis</span><span class="inline-block bg-orange-100 text-blue-700 text-xs font-semibold px-2 py-1 rounded-full mb-2">Computer Vision</span><span class="inline-block bg-red-100 text-blue-700 text-xs font-semibold px-2 py-1 rounded-full mb-2">Pattern Recongtions</span>
+
+                                    <h3 class="text-lg font-semibold text-slate-800">PALM-GLOBAL: Cross Domains Palm Leaf Manuscript Analysis for South and Southeast Asia Regions</h3>
+                                    <p class="mt-1 text-slate-600 text-sm leading-6">The bridge the two regions of south aisa region and southeast region for palm leaf analysis.</p>
+                                    <p href="#" class="text-blue-600 hover:underline text-sm font-medium mt-2 inline-block">In progress, Coming soon..&rarr;</p>
+                                </div>
+                            </div>
+                            <!-- Project Card 1 -->
+                            <div class="md:flex md:space-x-6 items-start">
+
+                                <div><br><img src="project\PLA\project.jpg" onerror="this.onerror=null;this.src='project\PLA\project.jpg';" alt="Palm Leaf Manuscript Analysis" class="w-full md:w-48 h-auto rounded-lg mb-4 md:mb-0" style="height: 130px;"></div>
+                                <div class="flex-1">
+                                      <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-1 rounded-full mb-2">Document Analysis</span><span class="inline-block bg-orange-100 text-blue-700 text-xs font-semibold px-2 py-1 rounded-full mb-2">Computer Vision</span><span class="inline-block bg-red-100 text-blue-700 text-xs font-semibold px-2 py-1 rounded-full mb-2">Pattern Recongtions</span>
+                                    <h3 class="text-lg font-semibold text-slate-800"><a href="project/PLA/PLA.html">PALM-SEA:Historical Palm Leaf Manuscript Analysis for Southeast Asia Regions (Completed)</a></h3>
+                                    <p class="mt-1 text-slate-600 text-sm leading-6">A unique of historical scripts from Southeast Asia (Sundanese, Balinese, Khmer) used to document religious texts, historical records, and cultural.</p>
+                                    <a href="project/PLA/PLA.html" class="text-blue-600 hover:underline text-sm font-medium mt-2 inline-block">View Project Details &rarr;</a>
+                                </div>
+                            </div>
+                             <!-- Project Card 2 -->
+                            <div class="md:flex md:space-x-6 items-start">
+                                <img src="project\KSE\assets\fig2.png" onerror="this.onerror=null;this.src='https://placehold.co/400x300/e2e8f0/334155?text=Project+Image';" alt="Khmer Document Information Extraction and Khmer Sementic Search Engi" class="w-full md:w-48 h-auto rounded-lg mb-4 md:mb-0" style="height:130px">
+                                <div class="flex-1">
+                                    <span class="inline-block bg-emerald-100 text-emerald-700 text-xs font-semibold px-2 py-1 rounded-full mb-2">Document Retrieval</span><span class="inline-block bg-pink-100 text-emerald-700 text-xs font-semibold px-2 py-1 rounded-full mb-2">NLP</span><span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-1 rounded-full mb-2">Document Analysis</span>
+                                    <h3 class="text-lg font-semibold text-slate-800"><a href="project\KSE\index.html">Khmer Document Information Extraction and Retrieval (Completed)</a></h3>
+                                    <p class="mt-1 text-slate-600 text-sm leading-6">Developing tools for search engines and keyword extraction to address the challenge of finding relevant Khmer documents, despite the daily generation of significant content.</p>
+                                     <a href="project\KSE\index.html" class="text-blue-600 hover:underline text-sm font-medium mt-2 inline-block">View Project Details &rarr;</a>
+                                </div>
+                            </div>
+                                                         <!-- Project Card 2 -->
+                            <div class="md:flex md:space-x-6 items-start">
+                                <img src="p4.jpg" onerror="this.onerror=null;this.src='p4.jpg';" alt="Khmer Document Information Extraction and Khmer Sementic Search Engi" class="w-full md:w-48 h-auto rounded-lg mb-4 md:mb-0" style="height:180px">
+                                <div class="flex-1">
+                                    <span class="inline-block bg-pink-100 text-emerald-700 text-xs font-semibold px-2 py-1 rounded-full mb-2">NLP</span><span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-1 rounded-full mb-2">Document Analysis</span>
+                                    <h3 class="text-lg font-semibold text-slate-800" >Form Understanding For non-Latin Low-resources Documents</h3>
+                                    <p class="mt-1 text-slate-600 text-sm leading-6">Developing tools for Form Understanding to address the challenge of finding relevant non-Latin documents. </p>
+                                     <p  class="text-blue-600 hover:underline text-sm font-medium mt-2 inline-block">In progress, Coming soon.. &rarr;</p>
+                                </div>
+                            </div>
+                             <!-- Project Card 3 -->
+                            <div class="md:flex md:space-x-6 items-start">
+                                <img src="p5.png" onerror="this.onerror=null;this.src='p5.jpg';" alt="Cambodian Complex System" class="w-full md:w-48 h-auto rounded-lg mb-4 md:mb-0">
+                                <div class="flex-1">
+                                    <span class="inline-block bg-amber-100 text-amber-700 text-xs font-semibold px-2 py-1 rounded-full mb-2">Complex Systems</span><span class="inline-block bg-blue-100 text-amber-700 text-xs font-semibold px-2 py-1 rounded-full mb-2">OCR</span><span class="inline-block bg-emerald-100 text-emerald-700 text-xs font-semibold px-2 py-1 rounded-full mb-2">Document Retrieval</span>
+                                    <h3 class="text-lg font-semibold text-slate-800"><a href="https://hal.science/hal-05072234v1/document">Open Education Resource for Document Management System (Completed)</a></h3>
+                                    <p class="mt-1 text-slate-600 text-sm leading-6">Research and development of several complex systems, including an Open Education Resource (OER) platform and a national Financial Document Management system.</p>
+                                    <a href="https://hal.science/hal-05072234v1/document" class="text-blue-600 hover:underline text-sm font-medium mt-2 inline-block">View Project Details &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+         
+    <!-- Publications Section -->
+    <section id="publications" class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b border-slate-200 pb-4 flex items-center">
+            <i class="fas fa-newspaper mr-3 text-blue-500"></i>
+            Selected Publications
+        </h2>
+        <div class="space-y-8">
+            
+            <!-- Publication Item 1 -->
+            <div class="publication-item md:flex md:space-x-6 items-start">
+                <a href="#" class="block md:w-40 md:flex-shrink-0">
+                    <img src="project\PLA\r3.jpg" onerror="this.onerror=null;this.src='project\PLA\r3.jpg';" alt="Publication thumbnail" class="w-full h-auto rounded-lg shadow-sm hover:shadow-md transition-shadow" style="height:120px;">
+                </a>
+                <div class="mt-4 md:mt-0">
+                    <h3 class="font-semibold text-slate-800">Multi-low resource languages in palm leaf manuscript recognition: Syllable-based augmentation and error analysis</h3>
+                    <p class="text-sm text-slate-500 mt-1"><strong>Nimol Thuon</strong>, J Du, P Theang, R Thuon</p>
+                    <p class="text-sm text-slate-500"><em>Pattern Recognition Letters, Elsevier</em>, 2025.</p>
+                    <div class="mt-2">
+                        <a href="https://www.sciencedirect.com/science/article/pii/S0167865525001734" class="text-blue-600 hover:underline text-sm font-medium">[PDF]</a>
+                        <a href="https://github.com/back-kh/SADA" class="text-blue-600 hover:underline text-sm font-medium ml-3">[Code]</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Publication Item 2 -->
+            <div class="publication-item md:flex md:space-x-6 items-start">
+                 <a href="#" class="block md:w-40 md:flex-shrink-0">
+                    <img src="project\PLA\c3.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x300/dbeafe/1e3a8a?text=Image';" alt="Publication thumbnail" class="w-full h-auto rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                </a>
+                <div class="mt-4 md:mt-0">
+                    <h3 class="font-semibold text-slate-800">A Low-Intervention Dual-Loop Iterative Process for Efficient Dataset Expansion and Classification in Palm Leaf Manuscript Analysis</h3>
+                                        <p class="text-sm text-slate-500 mt-1"><strong>Nimol Thuon</strong>, J Du, P Theang, R Thuon</p>
+                    <p class="text-sm text-slate-500"><em>International Journal on Document Analysis and Recognition (IJDAR) </em>, 2025.</p>
+                     <div class="mt-2">
+                        <a href="https://link.springer.com/article/10.1007/s10032-025-00532-y" class="text-blue-600 hover:underline text-sm font-medium">[PDF]</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Publication Item 3 -->
+             <div class="publication-item md:flex md:space-x-6 items-start">
+                 <a href="#" class="block md:w-40 md:flex-shrink-0">
+                    <img src="project\PLA\e4.jpg" onerror="this.onerror=null;this.src='project\PLA\e4.jpg';" alt="Publication thumbnail" class="w-full h-auto rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                </a>
+                <div class="mt-4 md:mt-0">
+                    <h3 class="font-semibold text-slate-800">Generate, transform, and clean: the role of GANs and transformers in palm leaf manuscript generation and enhancement</h3>
+                                        <p class="text-sm text-slate-500 mt-1"><strong>Nimol Thuon</strong>, J Du, Z Zhang, J Ma, P Hu</p>
+                    <p class="text-sm text-slate-500"><em>International Journal on Document Analysis and Recognition (IJDAR) </em>, 2024.</p>
+                     <div class="mt-2">
+                        <a href="https://link.springer.com/article/10.1007/s10032-024-00472-z" class="text-blue-600 hover:underline text-sm font-medium">[PDF]</a>
+                    </div>
+                </div>
+            </div>
+               <!-- Publication Item 4 -->
+             <div class="publication-item md:flex md:space-x-6 items-start">
+                 <a href="#" class="block md:w-40 md:flex-shrink-0">
+                    <img src="project\PLA\r2.jpg" onerror="this.onerror=null;this.src='project\PLA\r2.jpg';" alt="Publication thumbnail" class="w-full h-auto rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                </a>
+                <div class="mt-4 md:mt-0">
+                    <h3 class="font-semibold text-slate-800">KhmerFormer: Multi-scale cnns-transformer with external attention for ancient khmer palm leaf isolated glyph classification</h3>
+                                        <p class="text-sm text-slate-500 mt-1"><strong>Nimol Thuon</strong>, J Du</p>
+                    <p class="text-sm text-slate-500"><em>2024 Asia Pacific Signal and Information Processing Association Annual Summit and Conference (APSIPA ASC), IEEE </em>, 2024.</p>
+                     <div class="mt-2">
+                        <a href="https://ieeexplore.ieee.org/abstract/document/10849201/" class="text-blue-600 hover:underline text-sm font-medium">[PDF]</a>
+                    </div>
+                </div>
+            </div>
+               <!-- Publication Item 5 -->
+             <div class="publication-item md:flex md:space-x-6 items-start">
+                 <a href="#" class="block md:w-40 md:flex-shrink-0">
+                    <img src="project\PLA\e7.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x300/dbeafe/1e3a8a?text=Image';" alt="Publication thumbnail" class="w-full h-auto rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                </a>
+                <div class="mt-4 md:mt-0">
+                    <h3 class="font-semibold text-slate-800">Improving isolated glyph classification task for palm leaf manuscripts</h3>
+                                        <p class="text-sm text-slate-500 mt-1"><strong>Nimol Thuon</strong>, J Du, J Zhang</p>
+                    <p class="text-sm text-slate-500"><em>International Conference on Frontiers in Handwriting Recognition (ICFHR 2022), Springer </em>, 2022.</p>
+                     <div class="mt-2">
+                        <a href="https://link.springer.com/chapter/10.1007/978-3-031-21648-0_5" class="text-blue-600 hover:underline text-sm font-medium">[PDF]</a>
+                    </div>
+                </div>
+            </div>
+               <!-- Publication Item 3 -->
+             <div class="publication-item md:flex md:space-x-6 items-start">
+                 <a href="#" class="block md:w-40 md:flex-shrink-0">
+                    <img src="project\PLA\r9.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x300/dbeafe/1e3a8a?text=Image';" alt="Publication thumbnail" class="w-full h-auto rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                </a>
+                <div class="mt-4 md:mt-0">
+                    <h3 class="font-semibold text-slate-800">Syllable analysis data augmentation for khmer ancient palm leaf recognition</h3>
+                                        <p class="text-sm text-slate-500 mt-1"><strong>Nimol Thuon</strong>, J Du, J Zhang</p>
+                    <p class="text-sm text-slate-500"><em>2022 Asia Pacific Signal and Information Processing Association Annual Summit and Conference (APSIPA ASC), IEEE </em>, 2022.</p>
+                     <div class="mt-2">
+                        <a href="https://link.springer.com/article/10.1007/s10032-024-00472-z" class="text-blue-600 hover:underline text-sm font-medium">[PDF]</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+                    <!-- Services Section -->
+                    <section id="services" class="bg-white p-8 rounded-2xl shadow-sm">
+                        <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b pb-3">🤝 Services</h2>
+                        <div class="space-y-8">
+                            <div>
+                                <h3 class="text-xl font-semibold text-slate-700 mb-4 flex items-center">
+                                    <i class="fa-solid fa-chalkboard-user mr-3 text-blue-500"></i>
+                                    Presentations & Talks
+                                </h3>
+                                <ul class="space-y-3 list-disc list-inside text-slate-600 pl-2">
+                                    <li>Presentation on International Conference on Document Analysis and Recognition (ICDAR 2025)", Wuhan, China(September,2025) </li>
+                                    <li>Invited Talk on "AI for Digital Humanities in Southeast Asia" at the National University of Singapore, Singapore, 2025.</li>
+                                    <li>Presentation on International Conference on Document Analysis and Recognition (ICDAR 2024)",  Athens, Greece</li>
+                                    <li>Presentation on Asia Pacific Signal and Information Processing Association Annual Summit and Conference (APSIPA ASC 2024)",  Macao, China</li>
+                                    <li>Invited Talk on "AI Integration in Cultural Heritage" at Kyoto University, Japan, 2024.</li>
+                                    <li>Presentation on Asia Pacific Signal and Information Processing Association Annual Summit and Conference (APSIPA ASC 2022)",  Chiang Mai, Thailand</li>
+                                    <li>Presentation on International Conference on Frontiers in Handwriting Recognition (ICFHR 2022)",  Hyderabad, India</li>
+                                    <li>Presentation on Renewable Energy in Cambodia",Norwegian University of Science and Technology (NTNU) ,  Norway 2022</li>
+                                    <li>Presentation on "Khmer Semantic Search Engine", University of Mons ,  Belgium, 2017</li>
+   
+                                </ul>
+                            </div>
+                            <div class="border-t border-slate-200 pt-8">
+                                <h3 class="text-xl font-semibold text-slate-700 mb-4 flex items-center">
+                                    <i class="fa-solid fa-file-pen mr-3 text-emerald-500"></i>
+                                    Professional Services (Reviewer)
+                                </h3>
+                                <ul class="space-y-3 list-disc list-inside text-slate-600 pl-2">
+                                    <li>International Conference on Image and Graphics (ICIG), 2025.</li>
+                                    <li>Chinese Conference on Pattern Recognition and Computer Vision (PRCV),2023, 2024, 2025</li>
+                                    <li>International Journal on Document Analysis and Recognition (IJDAR).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Blog Section -->
+                    <section id="news" class="bg-white p-8 rounded-2xl shadow-sm">
+                        <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b pb-3">📣 Blog</h2>
+                        <div id="blog-posts-container" class="space-y-8">
+                            <!-- Blog posts will be dynamically inserted here -->
+                        </div>
+                        <!-- Pagination Controls -->
+                        <div id="pagination-controls" class="flex items-center justify-between mt-8">
+                            <button id="prev-page-btn" class="pagination-btn bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-2 px-4 rounded-lg flex items-center">
+                                <i class="fa-solid fa-arrow-left mr-2"></i>
+                                Previous
+                            </button>
+                            <span id="page-indicator" class="text-sm text-slate-600"></span>
+                            <button id="next-page-btn" class="pagination-btn bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-2 px-4 rounded-lg flex items-center">
+                                Next
+                                <i class="fa-solid fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- Honors and Awards Section -->
+                    <section id="awards" class="bg-white p-8 rounded-2xl shadow-sm">
+                        <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b pb-3">🎖 Honors and Awards</h2>
+                        <ul class="space-y-3 list-disc list-inside text-slate-600">
+                            <li>IAPR Support Grant for Summer School on Document Analysis and Recognition (SSDA 2023), Switzerland, 2023</li>
+                            <li>CuriousU Summer School Scholarship, University of Twente, 2022</li>
+                            <li>IEEE USTC Outstanding Young Researcher Award, 2022</li>
+                            <li>CAS-TWAS Fellowship, 2018</li>
+                            <li>Erasmus+ for PhD Scholarship, 2018</li>
+                            <li>ARES-CCD Scholarship by Belgium, 2017</li>
+                            <li>Excellence Award for Innovative Technology by the Ministry of Education of Cambodia, 2017</li>
+                            <li>ITC Scholarship, Cambodia</li>
+                            <li>Winner ASEAN CTF Cyber Security Challenges in 2016</li>
+                            <li>Runner Cyber Security Challenges in Cambodia 2015</li>
+                        </ul>
+                    </section>
+                </div>
+            </main>
+
+        </div>
+
+    </div>
+
+    <footer class="text-center py-8 mt-12">
+        <p class="text-sm text-slate-500">&copy; 2025 Nimol T. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // --- Mobile Menu and Nav Link Highlighting ---
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+                mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: '-30% 0px -70% 0px' });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Close mobile menu on link click
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (!mobileMenu.classList.contains('hidden')) {
+                         mobileMenu.classList.add('hidden');
+                         mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+
+            // --- Blog Pagination Logic ---
+
+            // You can add your blog posts here
+            const blogPosts = [
+                {
+                    date: 'July 01, 2024',
+                    title: 'Khmer Semantic Search Analysis And Breakdown by SEO Expert',
+                    excerpt: 'Khmer Semantic Search Analysis And Breakdown by SEO Expert'
+                },
+            ];
+
+            const postsContainer = document.getElementById('blog-posts-container');
+            const prevBtn = document.getElementById('prev-page-btn');
+            const nextBtn = document.getElementById('next-page-btn');
+            const pageIndicator = document.getElementById('page-indicator');
+
+            let currentPage = 1;
+            const postsPerPage = 3; // Number of posts to show per page
+
+            function renderBlogPosts() {
+                postsContainer.innerHTML = '';
+                const totalPages = Math.ceil(blogPosts.length / postsPerPage);
+                const startIndex = (currentPage - 1) * postsPerPage;
+                const endIndex = startIndex + postsPerPage;
+                const postsToShow = blogPosts.slice(startIndex, endIndex);
+
+                postsToShow.forEach(post => {
+                    const postElement = document.createElement('div');
+                    postElement.className = 'blog-post-item';
+                    postElement.innerHTML = `
+                        <p class="text-sm text-slate-500">${post.date}</p>
+                        <h3 class="text-lg font-semibold text-slate-800 mt-1">${post.title}</h3>
+                        <p class="mt-2 text-slate-600 leading-relaxed">${post.excerpt}</p>
+                        <a target="_blank" href="https://ethanlazuk.com/blog/hamsterdam-research-kse/" class="text-blue-600 hover:underline text-sm font-medium mt-3 inline-block">Read More &rarr;</a>
+                    `;
+                    postsContainer.appendChild(postElement);
+                });
+
+                // Update pagination controls
+                pageIndicator.textContent = `Page ${currentPage} of ${totalPages}`;
+                prevBtn.disabled = currentPage === 1;
+                nextBtn.disabled = currentPage === totalPages;
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderBlogPosts();
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if (currentPage < Math.ceil(blogPosts.length / postsPerPage)) {
+                    currentPage++;
+                    renderBlogPosts();
+                }
+            });
+
+            // Initial render
+            renderBlogPosts();
+        });
+    </script>
+
+</body>
+</html>
