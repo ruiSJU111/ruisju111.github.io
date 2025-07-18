@@ -1,0 +1,192 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Khmer Semantic Search Engine</title>
+<link href="./assets/style.css" rel="stylesheet">
+<script type="text/javascript" src="./assets/jquery.mlens-1.0.min.js"></script> 
+<script type="text/javascript" src="./assets/jquery.js"></script>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        caption {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+<div class="content">
+  <h1><strong>Khmer Semantic Search Engine: Digital Information Access and Document Retrieval</strong></h1>
+  <p id="authors"><span><a href=""></a></span><a href="">Nimol Thuon</a >
+    <br>
+  <span style="font-size: 24px">Institute of Technology of Cambodia (ITC)
+  </span></p>
+  <br>
+  <img src="./assets/fig4.png" class="teaser-gif" style="width:100%;"><br>
+  <h3 style="text-align:center"><em>Bridging the gap in digital information access for Khmer texts through semantic search techniques...</em></h3>
+    <font size="+2">
+          <p style="text-align: center;">
+            <a href="https://arxiv.org/abs/2406.09320" target="_blank">[Paper 1]</a> &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://arxiv.org/abs/2405.17390" target="_blank">[Paper 2]</a> &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://github.com/back-kh/KSWv1-Khmer-stop-words-corpus" target="_blank">[GitHub]</a> &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="assets/bibtex.txt" target="_blank">[BibTeX]</a>
+          </p>
+    </font>
+</div>
+<div class="content">
+  <h2 style="text-align:center;">Abstract</h2>
+  <p>The search engine process is crucial for document content retrieval. For Khmer documents, an effective tool is needed to extract essential keywords and facilitate accurate searches. Despite the daily generation of significant Khmer content, Cambodians struggle to find necessary documents due to the lack of an effective semantic searching tool. Even Google does not deliver high accuracy for Khmer content. Semantic search engines improve search results by employing advanced algorithms to understand various content types. With the rise in Khmer digital content such as reports, articles, and social media feedback enhanced search capabilities are essential. This research proposes the first Khmer Semantic Search Engine (KSE), designed to enhance traditional Khmer search methods. Utilizing semantic matching techniques and formally annotated semantic content, our tool extracts meaningful keywords from user queries, performs precise matching, and provides the best matching offline documents and online URLs. We propose three semantic search frameworks: semantic search based on a keyword dictionary, semantic search based on ontology, and semantic search based on ranking. Additionally, we developed tools for data preparation, including document addition and manual keyword extraction. To evaluate performance, we created a ground truth dataset and addressed issues related to searching and semantic search. Our findings demonstrate that understanding search term semantics can lead to significantly more accurate results.
+</p>
+</div>
+<div class="content">
+  <h2>Background</h2>
+  <p>Khmer, a complex and low-resource language, presents significant challenges for digital content retrieval. Traditional keyword-based search systems often fail to capture the nuances of the language, resulting in poor retrieval accuracy. Our research introduces a semantic search engine that utilizes advanced language modeling techniques, enabling accurate document retrieval and improved user experience in accessing Khmer digital content.</p>
+  <br>
+  <img class="summary-img" src="./assets/fig1.png" style="width:100%;"> <br>
+</div>
+<div class="content">
+  <h2>Approach</h2>
+  <p> Our system takes a hybrid approach, combining a pre-trained transformer model for semantic embeddings and a fine-tuned classifier to identify relevant document segments. The pipeline is optimized to handle large-scale Khmer documents and can accurately retrieve information based on context-aware queries. The model is further fine-tuned using a contrastive learning approach, aligning semantic similarities between queries and document passages.</p>
+  <br>
+  <img class="summary-img" src="./assets/fig2.png" style="width:100%;"> <br>
+  <p>The fine-tuning process is divided into two stages: (a) embedding optimization to capture both lexical and semantic features, and (b) query-document alignment using a Siamese network architecture to refine search results based on contextual relevance.</p>
+  <br>
+  <img class="summary-img" src="./assets/fig3.png" style="width:100%;"> <br>
+</div>
+<div class="content">
+  <h2>Results</h2>
+  <p>Our evaluation shows that the Khmer Semantic Search Engine significantly outperforms traditional keyword-based methods in both precision and recall, delivering more relevant search results for complex queries. The search engine's effectiveness is demonstrated through various real-world test cases, including academic research papers, historical texts, and legal documents.</p>
+<img class="summary-img" src="./assets/fig6.png" style="width:100%;">
+</div>
+<div class="content">
+
+  <h2>Keyword Extraction Comparison Results</h2>
+
+<!-- Table I: Comparison of Manual Extraction and Tool Extraction for KSE -->
+<table>
+    <caption>TABLE I: Comparison of Manual Extraction and Tool Extraction for KSE</caption>
+    <tr>
+        <th>Document ID</th>
+        <th>Manual Keywords</th>
+        <th>KSE Keywords</th>
+        <th>TF-IDF</th>
+        <th>TextRank</th>
+        <th>RAKE</th>
+    </tr>
+    <tr><td>1</td><td>kw1, kw2, kw3</td><td>kw1, kw2, kw4</td><td>kw2, kw3, kw5</td><td>kw1, kw3, kw6</td><td>kw1, kw4, kw5</td></tr>
+    <tr><td>2</td><td>kw4, kw5, kw6</td><td>kw4, kw5, kw7</td><td>kw5, kw6, kw8</td><td>kw4, kw6, kw9</td><td>kw4, kw7, kw8</td></tr>
+    <tr><td>3</td><td>kw7, kw8, kw9</td><td>kw7, kw8, kw10</td><td>kw8, kw9, kw11</td><td>kw7, kw9, kw12</td><td>kw7, kw10, kw11</td></tr>
+    <tr><td>4</td><td>kw10, kw11, kw12</td><td>kw10, kw11, kw13</td><td>kw11, kw12, kw14</td><td>kw10, kw12, kw15</td><td>kw10, kw13, kw14</td></tr>
+    <tr><td>5</td><td>kw13, kw14, kw15</td><td>kw13, kw14, kw16</td><td>kw14, kw15, kw17</td><td>kw13, kw15, kw18</td><td>kw13, kw16, kw17</td></tr>
+</table>
+
+<!-- Table II: Comparison of Manual Extraction and Tool Extraction for Title and Body Keywords -->
+<table>
+    <caption>TABLE II: Comparison of Manual Extraction and Tool Extraction for Title and Body Keywords</caption>
+    <tr>
+        <th>Manual Extraction Keyword</th>
+        <th>Extraction Keyword by Tool</th>
+        <th>Manual Extraction Keyword</th>
+        <th>Extraction Keyword by Tool</th>
+    </tr>
+    <tr><td>Title</td><td>Body</td><td>Title</td><td>Body</td></tr>
+    <tr><td>Khos Rong</td><td>Secret</td><td>Sihanoukville</td><td>Khos Rong</td></tr>
+    <tr><td>Khmer Tourism</td><td>Natural</td><td>Sea</td><td>Sihanoukville</td></tr>
+    <tr><td>Natural Beauty</td><td>Khos Rong</td><td>Tourist</td><td>Khmer</td></tr>
+    <tr><td>Natural</td><td>Khmer Tourism</td><td>Khos Rong</td><td>Natural</td></tr>
+    <tr><td>Tourism</td><td>Rare</td><td>Natural Beauty</td><td>Beach</td></tr>
+    <tr><td>Secret</td><td>Beach</td><td>Natural Beauty</td><td>Natural Beauty</td></tr>
+    <tr><td>Beach</td><td>Beach</td><td>Natural</td><td></td></tr>
+</table>
+
+<!-- Table III: Results of Keyword Extraction based on Title and Body Keywords -->
+<table>
+    <caption>TABLE III: Results of Keyword Extraction based on Title and Body Keywords</caption>
+    <tr>
+        <th>Document ID</th>
+        <th>Title</th>
+        <th>Body</th>
+    </tr>
+    <tr>
+        <th>Precision</th><th>Recall</th><th>F1</th><th>Precision</th><th>Recall</th><th>F1</th>
+    </tr>
+    <tr><td>1</td><td>0.80</td><td>0.66</td><td>0.36</td><td>0.77</td><td>0.77</td><td>0.78</td></tr>
+    <tr><td>2</td><td>0.66</td><td>0.80</td><td>0.72</td><td>0.81</td><td>0.90</td><td>0.85</td></tr>
+    <tr><td>3</td><td>0.57</td><td>0.44</td><td>0.50</td><td>0.83</td><td>0.55</td><td>0.66</td></tr>
+    <tr><td>4</td><td>1.00</td><td>1.00</td><td>1.00</td><td>0.88</td><td>0.80</td><td>0.84</td></tr>
+    <tr><td>5</td><td>1.00</td><td>0.57</td><td>0.72</td><td>1.00</td><td>0.72</td><td>0.84</td></tr>
+    <tr><td>1,150</td><td>0.71</td><td>0.83</td><td>0.76</td><td>1.00</td><td>0.75</td><td>0.85</td></tr>
+    <tr><td>Average</td><td>0.88</td><td>0.81</td><td>0.84</td><td>0.81</td><td>0.79</td><td>0.79</td></tr>
+</table>
+
+<!-- Table IV: Comparison of Search Results for Top 5 Documents -->
+<table>
+    <caption>TABLE IV: Comparison of Search Results for Top 5 Documents</caption>
+    <tr>
+        <th>Keyword</th>
+        <th>Manual Extraction</th>
+        <th>Tool Extraction</th>
+        <th>Manual Top 5 Documents</th>
+        <th>Tool Top 5 Documents</th>
+    </tr>
+    <tr><td>Khos Rong</td><td>Khos Rong</td><td>Khos Rong</td><td>Doc1, Doc2, Doc3, Doc4, Doc5</td><td>Doc1, Doc3, Doc4, Doc6, Doc7</td></tr>
+    <tr><td>Khmer Tourism</td><td>Khmer Tourism</td><td>Natural</td><td>Doc2, Doc5, Doc8, Doc11, Doc14</td><td>Doc2, Doc5, Doc9, Doc12, Doc15</td></tr>
+    <tr><td>Natural Beauty</td><td>Natural Beauty</td><td>Khos Rong</td><td>Doc3, Doc6, Doc9, Doc12, Doc15</td><td>Doc1, Doc3, Doc6, Doc10, Doc13</td></tr>
+    <tr><td>Natural</td><td>Natural</td><td>Khmer Tourism</td><td>Doc4, Doc7, Doc10, Doc13, Doc16</td><td>Doc4, Doc7, Doc11, Doc14, Doc17</td></tr>
+    <tr><td>Tourist</td><td>Tourist</td><td>Beach</td><td>Doc5, Doc8, Doc11, Doc14, Doc17</td><td>Doc5, Doc8, Doc12, Doc15, Doc18</td></tr>
+</table>
+
+<!-- Table V: Results of Our Proposed KSE Across Documents -->
+<table>
+    <caption>TABLE V: Results of Our Proposed KSE Across Documents</caption>
+    <tr>
+        <th>Total Input Test</th>
+        <th>F1-Score</th>
+    </tr>
+    <tr><td>1</td><td>0.71</td></tr>
+    <tr><td>2</td><td>0.87</td></tr>
+    <tr><td>3</td><td>0.48</td></tr>
+    <tr><td>4</td><td>0.79</td></tr>
+    <tr><td>5</td><td>0.77</td></tr>
+    <tr><td>100</td><td>0.71</td></tr>
+    <tr><td>Average</td><td>0.75</td></tr>
+</table><br>
+</div>
+
+<div class="content">
+  <h2>Societal Impact</h2>
+    <p>The system can also handle complex multi-modal queries, such as combining text and visual elements to extract relevant document sections. By incorporating view synthesis techniques, the search engine can dynamically adjust its output based on user preferences, enhancing user interaction and information accessibility.</p>
+    <p>The Khmer Semantic Search Engine is adaptable to a wide range of document types and contexts, offering customization options based on user requirements. Whether it's legal documents, academic texts, or historical archives, the system maintains a high level of fidelity in terms of context and semantic accuracy.</p>
+  <p>Our system can be extended to support document accessorization and annotation tasks, such as highlighting key phrases, adding metadata, and integrating cross-references. These features enable more comprehensive document management and access for users, making the Khmer Semantic Search Engine a versatile tool for both research and practical applications.</p>
+  <p>This project aims to promote digital inclusivity and preservation for low-resource languages like Khmer. By providing a robust and accessible information retrieval system, we hope to empower researchers, educators, and the general public to access and engage with Khmer digital content more effectively. The potential for misuse, however, must be carefully considered, and efforts should be made to ensure the ethical deployment of such systems.</p>
+  <br>
+</div>
+<div class="content">
+  <h2>BibTex</h2>
+  <code> @article{thuon2024khmersemanticsearch,<br>
+  &nbsp;&nbsp;title={Khmer Semantic Search Engine: Digital Information Access and Document Retrieval},<br>
+  &nbsp;&nbsp;author={Thuon, Nimol},<br>
+  &nbsp;&nbsp;booktitle={arXiv preprint arxiv:2406.09320v1},<br>
+  &nbsp;&nbsp;year={2024}<br>
+  } </code> 
+</div>
+<div class="content" id="acknowledgements">
+  <p><strong>Acknowledgements</strong>:
+    I would like to thank my research team at ITC for their support, as well as colleagues and mentors who have provided invaluable feedback throughout this project.
+  </p>
+</div>
+</body>
+</html>
