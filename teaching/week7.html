@@ -1,0 +1,96 @@
+module_7_html = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Module 7: Deep Learning for Image Understanding</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; color: #333; }
+        h1, h2, h3 { color: #2c3e50; }
+        pre { background-color: #f4f4f4; padding: 10px; border-left: 4px solid #ccc; overflow-x: auto; }
+        .box { background-color: #f9f9f9; padding: 20px; border-left: 4px solid #2c3e50; margin: 20px 0; }
+        ul { margin-top: 0; }
+    </style>
+</head>
+<body>
+
+<h1>Module 7: Deep Learning for Image Understanding</h1>
+
+<h2>1. Learning Objectives</h2>
+<ul>
+    <li>Understand the basics of neural networks and convolutional layers</li>
+    <li>Learn about popular CNN architectures</li>
+    <li>Use PyTorch or TensorFlow to implement deep learning models</li>
+</ul>
+
+<h2>2. Neural Networks Recap</h2>
+<p>A neural network consists of layers of interconnected nodes ("neurons"). Each neuron performs a weighted sum of inputs followed by a non-linear activation function like ReLU or Sigmoid.</p>
+<pre>
+output = activation(Wx + b)
+</pre>
+
+<h2>3. Convolutional Neural Networks (CNNs)</h2>
+<ul>
+    <li><strong>Convolution Layer:</strong> Applies filters to capture local patterns</li>
+    <li><strong>Pooling Layer:</strong> Reduces dimensionality (e.g., max pooling)</li>
+    <li><strong>Fully Connected Layer:</strong> Final classification layer</li>
+</ul>
+
+<h2>4. Famous Architectures</h2>
+<ul>
+    <li><strong>LeNet-5:</strong> Early CNN for digit recognition</li>
+    <li><strong>AlexNet:</strong> First deep CNN to win ImageNet</li>
+    <li><strong>VGG:</strong> Uses only 3x3 convolutions and depth</li>
+    <li><strong>ResNet:</strong> Introduces residual connections</li>
+</ul>
+
+<h2>5. PyTorch Implementation Example</h2>
+<pre><code>
+import torch.nn as nn
+
+class SimpleCNN(nn.Module):
+    def __init__(self):
+        super(SimpleCNN, self).__init__()
+        self.conv1 = nn.Conv2d(1, 32, kernel_size=3)
+        self.pool = nn.MaxPool2d(2, 2)
+        self.fc1 = nn.Linear(32 * 13 * 13, 10)
+
+    def forward(self, x):
+        x = self.pool(nn.functional.relu(self.conv1(x)))
+        x = x.view(-1, 32 * 13 * 13)
+        x = self.fc1(x)
+        return x
+</code></pre>
+
+<h2>6. Training Loop</h2>
+<pre><code>
+for epoch in range(epochs):
+    for inputs, labels in dataloader:
+        optimizer.zero_grad()
+        outputs = model(inputs)
+        loss = criterion(outputs, labels)
+        loss.backward()
+        optimizer.step()
+</code></pre>
+
+<h2>7. Transfer Learning</h2>
+<p>Use a pre-trained model like ResNet and fine-tune it for your dataset. Benefits:</p>
+<ul>
+    <li>Faster training</li>
+    <li>Better accuracy on small datasets</li>
+</ul>
+
+<h2>8. Assignment</h2>
+<div class="box">
+    <p><strong>Objective:</strong> Train a CNN from scratch and compare with transfer learning</p>
+    <ul>
+        <li>1. Use MNIST or CIFAR-10 dataset</li>
+        <li>2. Build and train a small CNN</li>
+        <li>3. Fine-tune a pre-trained ResNet model</li>
+        <li>4. Compare test accuracy and training time</li>
+    </ul>
+    <p><strong>Due:</strong> End of Week 7</p>
+</div>
+
+</body>
+</html>
