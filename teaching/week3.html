@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Module 3: Image Processing Fundamentals</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; color: #333; }
+        h1, h2, h3 { color: #2c3e50; }
+        pre { background-color: #f4f4f4; padding: 10px; border-left: 4px solid #ccc; overflow-x: auto; }
+        .box { background-color: #f9f9f9; padding: 20px; border-left: 4px solid #2c3e50; margin: 20px 0; }
+        ul { margin-top: 0; }
+    </style>
+</head>
+<body>
+
+<h1>Module 3: Image Processing Fundamentals</h1>
+
+<h2>1. Learning Objectives</h2>
+<ul>
+    <li>Understand core image processing operations for enhancing image quality</li>
+    <li>Apply filters for smoothing, sharpening, and edge detection</li>
+    <li>Visualize histograms and apply histogram equalization</li>
+    <li>Build practical image processing pipelines using OpenCV</li>
+</ul>
+
+<h2>2. Key Concepts</h2>
+<ul>
+    <li><strong>Point Operations:</strong> Adjust brightness and contrast at pixel level</li>
+    <li><strong>Linear Filtering:</strong> Convolution, smoothing, sharpening</li>
+    <li><strong>Edge Detection:</strong> Sobel, Prewitt, Canny</li>
+    <li><strong>Histogram:</strong> Plot of pixel intensity distribution</li>
+    <li><strong>Histogram Equalization:</strong> Enhances image contrast</li>
+</ul>
+
+<h2>3. Common Image Filters</h2>
+<table border="1" cellpadding="6">
+    <tr>
+        <th>Filter Type</th>
+        <th>Description</th>
+        <th>Example Kernel</th>
+    </tr>
+    <tr>
+        <td>Mean (Average)</td>
+        <td>Blurs image by averaging surrounding pixels</td>
+        <td>
+<pre>1/9 * [[1,1,1],
+        [1,1,1],
+        [1,1,1]]</pre>
+        </td>
+    </tr>
+    <tr>
+        <td>Gaussian</td>
+        <td>Smooths image with Gaussian-weighted average</td>
+        <td>cv2.GaussianBlur(image, (5,5), sigmaX)</td>
+    </tr>
+    <tr>
+        <td>Laplacian</td>
+        <td>Detects rapid intensity changes</td>
+        <td>cv2.Laplacian(image, cv2.CV_64F)</td>
+    </tr>
+    <tr>
+        <td>Sobel</td>
+        <td>Finds gradients in x or y direction</td>
+        <td>cv2.Sobel(image, cv2.CV_64F, dx, dy)</td>
+    </tr>
+</table>
+
+<h2>4. Edge Detection Algorithms</h2>
+<ul>
+    <li><strong>Sobel:</strong> First-order derivatives in X or Y</li>
+    <li><strong>Prewitt:</strong> Similar to Sobel with simpler masks</li>
+    <li><strong>Canny:</strong> Multi-stage filter: noise reduction → gradient → non-max suppression → hysteresis thresholding</li>
+</ul>
+
+<h2>5. Hands-on Examples (OpenCV)</h2>
+<pre><code>!pip install opencv-python-headless matplotlib
+
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+from google.colab import files
+from google.colab.patches import cv2_imshow
+
+uploaded = files.upload()
+img_path = next(iter(uploaded))
+image = cv2.imread(img_path)
+gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+cv2_imshow(gray)
+
+# 1. Smoothing (Gaussian Blur)
+blur = cv2.GaussianBlur(gray, (5, 5), 0)
+cv2_imshow(blur)
+
+# 2. Sobel Edge Detection
+sobelx = cv2.Sobel(gray, cv2.CV_64F, 1, 0, ksize=3)
+sobely = cv2.Sobel(gray, cv2.CV_64F, 0, 1, ksize=3)
+cv2_imshow(cv2.convertScaleAbs(sobelx))
+cv2_imshow(cv2.convertScaleAbs(sobely))
+
+# 3. Canny Edge Detection
+canny = cv2.Canny(gray, 100, 200)
+cv2_imshow(canny)
+
+# 4. Histogram Equalization
+equalized = cv2.equalizeHist(gray)
+cv2_imshow(equalized)
+</code></pre>
+
+<h2>6. Real-World Example</h2>
+<p>In industrial inspection, edge detection is used to verify product shape, completeness, or detect defects in manufacturing lines.</p>
+
+<h2>7. Assignment</h2>
+<div class="box">
+    <p><strong>Objective:</strong> Practice edge detection and image enhancement with OpenCV.</p>
+    <ul>
+        <li>1. Load an image and apply Gaussian smoothing</li>
+        <li>2. Detect edges using Sobel and Canny methods</li>
+        <li>3. Plot histogram before and after equalization</li>
+        <li>4. Reflect: When is histogram equalization useful? When is it not?</li>
+    </ul>
+    <p><strong>Due:</strong> End of Week 3</p>
+</div>
+
+</body>
+</html>
