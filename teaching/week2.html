@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Module 2: Image Formation and Representation</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; }
+        h1, h2 { color: #2c3e50; }
+        pre { background-color: #f4f4f4; padding: 10px; border-left: 3px solid #ccc; overflow-x: auto; }
+        .box { border: 1px solid #ccc; padding: 20px; background: #f9f9f9; margin: 20px 0; }
+        ul { margin-top: 0; }
+    </style>
+</head>
+<body>
+
+<h1>Module 2: Image Formation and Representation</h1>
+
+<h2>1. Learning Objectives</h2>
+<ul>
+    <li>Understand the physical and digital processes behind image formation</li>
+    <li>Explore various image representation formats and color spaces</li>
+    <li>Learn about the impact of resolution and pixel structure</li>
+    <li>Gain hands-on experience loading and converting images with OpenCV</li>
+</ul>
+
+<h2>2. Key Concepts</h2>
+<ul>
+    <li><strong>Color Spaces:</strong> RGB, Grayscale, HSV, YCrCb</li>
+    <li><strong>Resolution:</strong> Image size in pixels (e.g., 640x480)</li>
+    <li><strong>Coordinate System:</strong> Origin at the top-left; (x, y) denotes pixel position</li>
+    <li><strong>Image Formats:</strong> JPEG (lossy), PNG (lossless), BMP, TIFF</li>
+</ul>
+
+<h2>3. Digital Image Formation</h2>
+<p>Images are formed through a camera sensor, which captures light from a scene and converts it into a 2D grid of pixels. Each pixel stores intensity (grayscale) or RGB color values.</p>
+<pre>
+Digital Image = 2D array of pixels
+Each pixel = [R, G, B] values (0–255)
+</pre>
+
+<h2>4. Real-World Example</h2>
+<p>Medical imaging devices (e.g., MRI, CT scanners) produce grayscale or pseudo-color images. Proper understanding of resolution, pixel intensity, and format is crucial in analysis.</p>
+
+<h2>5. Hands-on Lab (OpenCV)</h2>
+<p>Use the following Colab-compatible code to load and convert images.</p>
+<pre><code>!pip install opencv-python-headless matplotlib
+
+import cv2
+import matplotlib.pyplot as plt
+from google.colab import files
+from google.colab.patches import cv2_imshow
+
+# Upload an image
+uploaded = files.upload()
+img_path = next(iter(uploaded))
+
+# Load image
+image = cv2.imread(img_path)
+cv2_imshow(image)
+
+# Convert to grayscale
+gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+cv2_imshow(gray)
+
+# Convert to HSV
+hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+cv2_imshow(hsv)
+
+# Resize image
+resized = cv2.resize(image, (300, 300))
+cv2_imshow(resized)
+</code></pre>
+
+<h2>6. Assignment</h2>
+<div class="box">
+    <p><strong>Objective:</strong> Apply and visualize different image formats and color models.</p>
+    <ul>
+        <li>1. Upload an image and display it in RGB, HSV, and Grayscale</li>
+        <li>2. Change its resolution and save the result</li>
+        <li>3. Research: Describe 3 different image formats and their use cases</li>
+    </ul>
+    <p><strong>Due:</strong> End of Week 2</p>
+</div>
+
+</body>
+</html>
