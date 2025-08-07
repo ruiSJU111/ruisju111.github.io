@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Module 5: Geometric Vision and Camera Models</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; color: #333; }
+        h1, h2, h3 { color: #2c3e50; }
+        pre { background-color: #f4f4f4; padding: 10px; border-left: 4px solid #ccc; overflow-x: auto; }
+        .box { background-color: #f9f9f9; padding: 20px; border-left: 4px solid #2c3e50; margin: 20px 0; }
+        ul { margin-top: 0; }
+    </style>
+</head>
+<body>
+
+<h1>Module 5: Geometric Vision and Camera Models</h1>
+
+<h2>1. Learning Objectives</h2>
+<ul>
+    <li>Understand the pinhole camera model and camera calibration</li>
+    <li>Learn intrinsic and extrinsic parameters of cameras</li>
+    <li>Understand homographies and epipolar geometry</li>
+    <li>Explore stereo vision and depth estimation</li>
+</ul>
+
+<h2>2. The Pinhole Camera Model</h2>
+<p>The pinhole camera model is a mathematical abstraction describing how a 3D point in the world maps to a 2D point on the image plane.</p>
+<pre>
+x = K [R | t] X
+</pre>
+<ul>
+    <li><strong>X</strong>: 3D world coordinate</li>
+    <li><strong>[R | t]</strong>: Extrinsic parameters (rotation and translation)</li>
+    <li><strong>K</strong>: Intrinsic matrix (focal length, principal point, etc.)</li>
+    <li><strong>x</strong>: 2D pixel coordinates</li>
+</ul>
+
+<h2>3. Intrinsic Parameters</h2>
+<ul>
+    <li>Focal length (fx, fy)</li>
+    <li>Optical center (cx, cy)</li>
+    <li>Skew coefficient (rare)</li>
+</ul>
+
+<h2>4. Extrinsic Parameters</h2>
+<ul>
+    <li>Rotation matrix (R)</li>
+    <li>Translation vector (t)</li>
+    <li>Describes how camera is placed in the world</li>
+</ul>
+
+<h2>5. Camera Calibration</h2>
+<p>Used to determine intrinsic and extrinsic parameters using images of a known object (like a checkerboard).</p>
+
+<h2>6. Homography</h2>
+<p>A homography is a transformation that maps points from one plane to another using a 3x3 matrix:</p>
+<pre>
+x' = Hx
+</pre>
+<p>Used for planar transformations, image stitching, and motion estimation.</p>
+
+<h2>7. Epipolar Geometry</h2>
+<ul>
+    <li>Describes geometric relationship between two views</li>
+    <li>Key terms: epipole, epipolar line, fundamental matrix</li>
+</ul>
+
+<h2>8. Stereo Vision and Depth Estimation</h2>
+<ul>
+    <li>Uses two cameras to compute depth from disparity</li>
+    <li>Applications: 3D reconstruction, robotics, AR</li>
+</ul>
+
+<h2>9. Hands-On Lab: Camera Calibration (OpenCV)</h2>
+<pre><code>
+import cv2
+import numpy as np
+import glob
+
+# Define checkerboard dimensions
+CHECKERBOARD = (6, 9)
+criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 30, 0.001)
+
+objp = np.zeros((CHECKERBOARD[0]*CHECKERBOARD[1], 3), np.float32)
+objp[:, :2] = np.mgrid[0:CHECKERBOARD[1], 0:CHECKERBOARD[0]].T.reshape(-1, 2)
+
+objpoints = []
+imgpoints = []
+
+images = glob.glob('*.jpg')  # use uploaded checkerboard images
+
+for fname in images:
+    img = cv2.imread(fname)
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    ret, corners = cv2.findChessboardCorners(gray, CHECKERBOARD, None)
+    if ret:
+        objpoints.append(objp)
+        corners2 = cv2.cornerSubPix(gray, corners, (11,11), (-1,-1), criteria)
+        imgpoints.append(corners2)
+        img = cv2.drawChessboardCorners(img, CHECKERBOARD, corners2, ret)
+        cv2.imshow('img', img)
+        cv2.waitKey(500)
+
+cv2.destroyAllWindows()
+
+ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, gray.shape[::-1], None, None)
+print("Camera matrix:
+", mtx)
+</code></pre>
+
+<h2>10. Assignment</h2>
+<div class="box">
+    <p><strong>Objective:</strong> Understand the geometry of camera models and calibration.</p>
+    <ul>
+        <li>1. Write a summary of intrinsic vs. extrinsic parameters</li>
+        <li>2. Use calibration code with your own or sample checkerboard images</li>
+        <li>3. (Optional) Explore OpenCV stereo depth estimation</li>
+    </ul>
+    <p><strong>Due:</strong> End of Week 5</p>
+</div>
+
+</body>
+</html>
