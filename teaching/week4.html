@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Module 4: Feature Extraction and Matching</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; color: #333; }
+        h1, h2, h3 { color: #2c3e50; }
+        pre { background-color: #f4f4f4; padding: 10px; border-left: 4px solid #ccc; overflow-x: auto; }
+        .box { background-color: #f9f9f9; padding: 20px; border-left: 4px solid #2c3e50; margin: 20px 0; }
+        ul { margin-top: 0; }
+    </style>
+</head>
+<body>
+
+<h1>Module 4: Feature Extraction and Matching</h1>
+
+<h2>1. Learning Objectives</h2>
+<ul>
+    <li>Understand how to detect and describe local image features</li>
+    <li>Compare feature detectors like Harris, FAST, SIFT, SURF, and ORB</li>
+    <li>Apply feature matching techniques using OpenCV</li>
+    <li>Use feature matches for image alignment and recognition</li>
+</ul>
+
+<h2>2. Key Concepts</h2>
+<ul>
+    <li><strong>Keypoints:</strong> Interest points in the image that are repeatable and distinctive (e.g., corners, blobs)</li>
+    <li><strong>Descriptors:</strong> Vectors that describe the region around a keypoint</li>
+    <li><strong>Feature Matching:</strong> Comparing descriptors across images to find correspondences</li>
+</ul>
+
+<h2>3. Keypoint Detectors</h2>
+<ul>
+    <li><strong>Harris Corner Detector:</strong> Detects corners using gradient-based scoring</li>
+    <li><strong>FAST (Features from Accelerated Segment Test):</strong> Efficient for real-time keypoint detection</li>
+</ul>
+
+<h2>4. Descriptors</h2>
+<ul>
+    <li><strong>SIFT:</strong> Scale-Invariant Feature Transform (good for scale/rotation changes)</li>
+    <li><strong>SURF:</strong> Speeded-Up Robust Features (patented)</li>
+    <li><strong>ORB:</strong> Oriented FAST and Rotated BRIEF (efficient and open-source)</li>
+</ul>
+
+<h2>5. Feature Matching Techniques</h2>
+<ul>
+    <li>Brute Force Matcher: Compares descriptors one-by-one</li>
+    <li>FLANN (Fast Library for Approximate Nearest Neighbors): Faster for large datasets</li>
+</ul>
+
+<h2>6. Hands-On Lab</h2>
+<p>Use OpenCV to detect keypoints and match features between two uploaded images.</p>
+<pre><code>import cv2
+import numpy as np
+from google.colab.patches import cv2_imshow
+from google.colab import files
+
+# Upload two images
+uploaded = files.upload()
+img1 = cv2.imread(list(uploaded.keys())[0], 0)  # Grayscale
+uploaded = files.upload()
+img2 = cv2.imread(list(uploaded.keys())[0], 0)
+
+# Detect ORB keypoints and descriptors
+orb = cv2.ORB_create()
+kp1, des1 = orb.detectAndCompute(img1, None)
+kp2, des2 = orb.detectAndCompute(img2, None)
+
+# Match descriptors using BFMatcher
+bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
+matches = bf.match(des1, des2)
+matches = sorted(matches, key=lambda x: x.distance)
+
+# Draw top 20 matches
+matched_img = cv2.drawMatches(img1, kp1, img2, kp2, matches[:20], None, flags=2)
+cv2_imshow(matched_img)
+</code></pre>
+
+<h2>7. Real-World Applications</h2>
+<ul>
+    <li>Panorama stitching</li>
+    <li>Object recognition and tracking</li>
+    <li>Augmented reality anchor detection</li>
+</ul>
+
+<h2>8. Assignment</h2>
+<div class="box">
+    <p><strong>Objective:</strong> Practice keypoint detection and feature matching with real-world images.</p>
+    <ul>
+        <li>1. Upload two similar but not identical images (e.g. same object from different angles)</li>
+        <li>2. Use ORB or SIFT to detect and match features</li>
+        <li>3. Visualize and save the top 20 matches</li>
+        <li>4. Optional: Try FLANN for faster matching</li>
+        <li>5. Write a reflection: Which method worked best and why?</li>
+    </ul>
+    <p><strong>Due:</strong> End of Week 4</p>
+</div>
+
+</body>
+</html>
