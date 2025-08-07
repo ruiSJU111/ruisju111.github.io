@@ -355,45 +355,49 @@
                             </div>
                         </div>
                     </section>
-                     <!-- Teaching Section -->
-                    <section id="teaching" class="bg-white p-8 rounded-2xl shadow-sm">
-                        <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b pb-3">📣 Teaching</h2>
-                        <div id="blog-posts-container" class="space-y-8">
-                            <!-- Blog posts will be dynamically inserted here -->
-                        </div>
-                        <!-- Pagination Controls -->
-                        <div id="pagination-controls" class="flex items-center justify-between mt-8">
-                            <button id="prev-page-btn" class="pagination-btn bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-2 px-4 rounded-lg flex items-center">
-                                <i class="fa-solid fa-arrow-left mr-2"></i>
-                                Previous
-                            </button>
-                            <span id="page-indicator" class="text-sm text-slate-600"></span>
-                            <button id="next-page-btn" class="pagination-btn bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-2 px-4 rounded-lg flex items-center">
-                                Next
-                                <i class="fa-solid fa-arrow-right ml-2"></i>
-                            </button>
-                        </div>
-                    </section>
+<!-- Teaching Section -->
+<section id="teaching" class="bg-white p-8 rounded-2xl shadow-sm">
+    <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b pb-3">📘 Teaching</h2>
+    
+    <div class="space-y-6">
+        <!-- Week 1 Post -->
+        <article class="border-b pb-4">
+            <h3 class="text-xl font-semibold text-slate-700">Week 1: Introduction to Computer Vision</h3>
+            <p class="text-slate-600 mt-2">
+                An overview of computer vision, key definitions, real-world applications like autonomous driving, and a hands-on exercise using OpenCV for edge detection.
+            </p>
+            <a href="Week_1_Intro_CV.html" target="_blank" class="inline-block mt-3 text-blue-600 hover:underline font-medium">
+                👉 Read more
+            </a>
+        </article>
 
-                    <!-- Blog Section -->
-                    <section id="news" class="bg-white p-8 rounded-2xl shadow-sm">
-                        <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b pb-3">📣 Blog</h2>
-                        <div id="blog-posts-container" class="space-y-8">
-                            <!-- Blog posts will be dynamically inserted here -->
-                        </div>
-                        <!-- Pagination Controls -->
-                        <div id="pagination-controls" class="flex items-center justify-between mt-8">
-                            <button id="prev-page-btn" class="pagination-btn bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-2 px-4 rounded-lg flex items-center">
-                                <i class="fa-solid fa-arrow-left mr-2"></i>
-                                Previous
-                            </button>
-                            <span id="page-indicator" class="text-sm text-slate-600"></span>
-                            <button id="next-page-btn" class="pagination-btn bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-2 px-4 rounded-lg flex items-center">
-                                Next
-                                <i class="fa-solid fa-arrow-right ml-2"></i>
-                            </button>
-                        </div>
-                    </section>
+        <!-- Add more articles for Week 2, Week 3... -->
+        <!-- Example: -->
+        <!--
+        <article class="border-b pb-4">
+            <h3 class="text-xl font-semibold text-slate-700">Week 2: Image Formation & Representation</h3>
+            <p class="text-slate-600 mt-2">
+                Learn how images are captured, structured, and stored. Explore color models, sensors, and coordinate systems that form the foundation of visual data processing.
+            </p>
+            <a href="Week_2_Image_Formation.html" class="inline-block mt-3 text-blue-600 hover:underline font-medium">
+                👉 Read more
+            </a>
+        </article>
+        -->
+    </div>
+
+    <!-- Pagination Controls (if needed for many posts) -->
+    <div class="flex items-center justify-between mt-8">
+        <button class="pagination-btn bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-2 px-4 rounded-lg flex items-center">
+            <i class="fa-solid fa-arrow-left mr-2"></i> Previous
+        </button>
+        <span class="text-sm text-slate-600">Page 1</span>
+        <button class="pagination-btn bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-2 px-4 rounded-lg flex items-center">
+            Next <i class="fa-solid fa-arrow-right ml-2"></i>
+        </button>
+    </div>
+</section>
+
 
                     <!-- Honors and Awards Section -->
                     <section id="awards" class="bg-white p-8 rounded-2xl shadow-sm">
@@ -535,6 +539,7 @@
 
 </body>
 </html>
+
 
 
 
