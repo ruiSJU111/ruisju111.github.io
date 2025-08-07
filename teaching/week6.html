@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Module 6: Classical Machine Learning for Vision</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; color: #333; }
+        h1, h2, h3 { color: #2c3e50; }
+        pre { background-color: #f4f4f4; padding: 10px; border-left: 4px solid #ccc; overflow-x: auto; }
+        .box { background-color: #f9f9f9; padding: 20px; border-left: 4px solid #2c3e50; margin: 20px 0; }
+        ul { margin-top: 0; }
+    </style>
+</head>
+<body>
+
+<h1>Module 6: Classical Machine Learning for Vision</h1>
+
+<h2>1. Learning Objectives</h2>
+<ul>
+    <li>Understand the difference between supervised and unsupervised learning</li>
+    <li>Apply KNN, SVM, and Decision Trees to visual features</li>
+    <li>Evaluate model performance using accuracy, precision, recall</li>
+</ul>
+
+<h2>2. Supervised vs. Unsupervised Learning</h2>
+<p><strong>Supervised:</strong> Training data has input-output pairs (e.g. image + label)</p>
+<p><strong>Unsupervised:</strong> No labels provided, models find patterns (e.g. clustering)</p>
+
+<h2>3. Common Classical Algorithms</h2>
+<ul>
+    <li><strong>K-Nearest Neighbors (KNN):</strong> Classifies based on majority vote of neighbors</li>
+    <li><strong>Support Vector Machines (SVM):</strong> Finds decision boundary that maximizes margin</li>
+    <li><strong>Decision Trees:</strong> Recursive splitting based on feature values</li>
+</ul>
+
+<h2>4. Feature Extraction</h2>
+<p>Classical methods require hand-crafted features. Example:</p>
+<pre>
+from skimage.feature import hog
+features, _ = hog(image, pixels_per_cell=(8, 8), cells_per_block=(2, 2), visualize=True)
+</pre>
+
+<h2>5. Example Pipeline</h2>
+<ol>
+    <li>Load image dataset (e.g., digits or CIFAR-10)</li>
+    <li>Extract features (HOG, grayscale histograms, etc.)</li>
+    <li>Train a classical model (SVM, KNN, etc.)</li>
+    <li>Evaluate accuracy on test set</li>
+</ol>
+
+<h2>6. Hands-On Lab</h2>
+<pre><code>
+from sklearn.datasets import load_digits
+from sklearn.model_selection import train_test_split
+from sklearn.svm import SVC
+from sklearn.metrics import classification_report
+
+digits = load_digits()
+X_train, X_test, y_train, y_test = train_test_split(digits.data, digits.target, test_size=0.3, random_state=42)
+
+clf = SVC(kernel='linear')
+clf.fit(X_train, y_train)
+
+y_pred = clf.predict(X_test)
+print(classification_report(y_test, y_pred))
+</code></pre>
+
+<h2>7. Evaluation Metrics</h2>
+<ul>
+    <li><strong>Accuracy:</strong> (TP + TN) / Total</li>
+    <li><strong>Precision:</strong> TP / (TP + FP)</li>
+    <li><strong>Recall:</strong> TP / (TP + FN)</li>
+    <li><strong>F1 Score:</strong> Harmonic mean of precision and recall</li>
+</ul>
+
+<h2>8. Assignment</h2>
+<div class="box">
+    <p><strong>Objective:</strong> Train and evaluate classical ML models on a small vision dataset.</p>
+    <ul>
+        <li>1. Choose a dataset (Digits, Fashion-MNIST, etc.)</li>
+        <li>2. Extract features manually or use flattened images</li>
+        <li>3. Compare KNN, SVM, and Decision Tree accuracy</li>
+        <li>4. Reflect on advantages and limitations</li>
+    </ul>
+    <p><strong>Due:</strong> End of Week 6</p>
+</div>
+
+</body>
+</html>
